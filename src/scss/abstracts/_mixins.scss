@@ -12,7 +12,7 @@ $breakpoints: (
 );
 
 @mixin media-up($breakpoint) {
-  $size: map-get($breakpoints, $breakpoint);
+  $size: map.get($breakpoints, $breakpoint);
   @if $size {
     @media (width >= $size) {
       @content;
@@ -23,7 +23,7 @@ $breakpoints: (
 }
 
 @mixin media-down($breakpoint) {
-  $size: map-get($breakpoints, $breakpoint);
+  $size: map.get($breakpoints, $breakpoint);
   @if $size {
     @media (width <= $size) {
       @content;
