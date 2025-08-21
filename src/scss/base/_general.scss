@@ -1,0 +1,26 @@
+@use "../abstracts" as ab;
+
+html {
+  @include ab.motion-safe() {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  color: ab.$clr-foreground;
+  background: ab.$clr-background;
+
+  font-family: ab.$ff-sans;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container-fluid {
+  max-width: ab.$container-fluid;
+}
+
+.container {
+  max-width: ab.$container;
+  margin-inline: auto;
+  padding-inline: ab.rem(20);
+}

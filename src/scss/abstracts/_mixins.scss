@@ -1,0 +1,40 @@
+@use "variables" as vb;
+@use "functions" as fn;
+@use "sass:map";
+
+$breakpoints: (
+  "xs": fn.em(480),
+  "sm": fn.em(640),
+  "md": fn.em(768),
+  "lg": fn.em(1024),
+  "xl": fn.em(1280),
+  "2xl": fn.em(1536),
+);
+
+@mixin media-up($breakpoint) {
+  $size: map-get($breakpoints, $breakpoint);
+  @if $size {
+    @media (width >= $size) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint `#{$breakpoint}` not found in $breakpoints map.";
+  }
+}
+
+@mixin media-down($breakpoint) {
+  $size: map-get($breakpoints, $breakpoint);
+  @if $size {
+    @media (width <= $size) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint `#{$breakpoint}` not found in $breakpoints map.";
+  }
+}
+
+@mixin motion-safe() {
+  @media (prefers-reduced-motion: no-preference) {
+    @content;
+  }
+}

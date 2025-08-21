@@ -1,0 +1,21 @@
+@use "functions" as fn;
+
+// colors
+$clr-background: hsl(0, 0%, 100%);
+$clr-foreground: hsl(225, 14%, 11%);
+$clr-primary: hsl(147, 66%, 39%);
+$clr-secondary: hsl(211, 72%, 48%);
+$clr-muted: hsl(270, 15%, 95%);
+$clr-muted-foreground: hsl(240, 3%, 46%);
+
+// typography
+$ff-sans: var(--font-azo-sans);
+
+$fw-light: 300;
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-bold: 700;
+
+// spacing
+$container-fluid: fn.rem(1920);
+$container: fn.rem(1574);
