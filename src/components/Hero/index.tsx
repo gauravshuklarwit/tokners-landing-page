@@ -40,8 +40,7 @@ export function Hero() {
               <Image
                 src="/hero-desktop.svg"
                 alt="Hero mockup image"
-                width={931}
-                height={785}
+                fill
                 className={`${styles["hero__image-desktop"]}`}
               />
             </div>
