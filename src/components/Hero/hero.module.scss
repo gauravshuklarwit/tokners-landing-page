@@ -7,24 +7,23 @@
     position: relative;
     overflow: hidden;
 
+    &::after {
+      content: url("/patterns/hero-layers.svg");
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -10;
+    }
+
     @include ab.media-up("lg") {
       &::after {
-        content: url("/patterns/hero-layers.svg");
-        position: absolute;
-        top: 0;
-        right: -30vw;
-        z-index: -10;
+        left: 20%;
       }
     }
 
     @include ab.media-up("xl") {
       &::after {
-        right: -18vw;
-      }
-    }
-
-    @include ab.media-up("2xl") {
-      &::after {
+        left: auto;
         right: 0;
       }
     }
