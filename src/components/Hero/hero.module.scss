@@ -1,0 +1,138 @@
+@use "../../scss/abstracts" as ab;
+
+.hero {
+  &__container--fluid {
+    margin-inline: auto;
+
+    position: relative;
+    overflow: hidden;
+
+    @include ab.media-up("lg") {
+      &::after {
+        content: url("/patterns/hero-layers.svg");
+        position: absolute;
+        top: 0;
+        right: -30vw;
+        z-index: -10;
+      }
+    }
+
+    @include ab.media-up("xl") {
+      &::after {
+        right: -18vw;
+      }
+    }
+
+    @include ab.media-up("2xl") {
+      &::after {
+        right: 0;
+      }
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+  }
+
+  &__container {
+    display: grid;
+    gap: ab.rem(40);
+    padding-block: ab.rem(80);
+
+    @include ab.media-up("sm") {
+      gap: ab.rem(52);
+    }
+
+    @include ab.media-up("md") {
+      padding-block: ab.rem(164);
+    }
+
+    @include ab.media-up("lg") {
+      padding-block: ab.rem(285);
+      grid-template-columns: 52% 1fr;
+    }
+  }
+
+  &__text-box {
+    @include ab.media-up("lg") {
+      max-width: ab.rem(555);
+    }
+  }
+
+  &__label {
+    margin-block-start: ab.rem(16);
+    color: ab.$clr-secondary;
+    font-size: ab.rem(18);
+    font-weight: ab.$fw-medium;
+
+    @include ab.media-up("xl") {
+      line-height: 3;
+    }
+  }
+
+  &__heading {
+    margin-block-start: ab.rem(12);
+    font-size: ab.rem(28);
+    font-weight: ab.$fw-medium;
+
+    @include ab.media-up("sm") {
+      margin-block-start: ab.rem(16);
+      font-size: ab.rem(42);
+    }
+
+    @include ab.media-up("xl") {
+      margin-block-start: ab.rem(5);
+      font-size: ab.rem(48);
+      line-height: 1.125;
+    }
+  }
+
+  &__description {
+    margin-block-start: ab.rem(14);
+    color: ab.$clr-muted-foreground;
+
+    @include ab.media-up("sm") {
+      margin-block-start: ab.rem(16);
+      font-size: ab.rem(16);
+    }
+
+    @include ab.media-up("xl") {
+      margin-block-start: ab.rem(36);
+    }
+  }
+
+  &__cta {
+    margin-block-start: ab.rem(20);
+
+    @include ab.media-up("sm") {
+      margin-block-start: ab.rem(28);
+    }
+
+    @include ab.media-up("xl") {
+      margin-block-start: ab.rem(40);
+    }
+  }
+
+  &__image-box {
+    order: -1;
+
+    @include ab.media-up("lg") {
+      order: 1;
+    }
+  }
+
+  &__image-mobile {
+    @include ab.media-up("lg") {
+      display: none;
+    }
+  }
+
+  &__image-desktop {
+    display: none;
+
+    @include ab.media-up("lg") {
+      display: block;
+      position: absolute;
+    }
+  }
+}
