@@ -62,7 +62,7 @@ The project includes reusable SASS mixins and functions for:
 - Responsive media queries
 - Pixel-to-rem/em conversion
 
-See `src/sass/abstracts/_mixins.scss` and `src/sass/abstracts/_functions.scss` for details.
+See `src/scss/abstracts/_mixins.scss` and `src/scss/abstracts/_functions.scss` for details.
 
 ## Deployment
 
