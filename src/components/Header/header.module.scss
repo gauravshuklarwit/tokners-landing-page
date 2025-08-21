@@ -1,0 +1,155 @@
+@use "../../scss/abstracts" as ab;
+
+.header {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  z-index: 50;
+
+  padding-block: ab.rem(24);
+
+  @include ab.media-up("xl") {
+    padding-block: ab.rem(36);
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include ab.media-up(lg) {
+      padding-inline: ab.rem(40);
+    }
+  }
+
+  &__logo-image {
+    max-width: ab.rem(150);
+    width: 100%;
+    height: auto;
+
+    @include ab.media-up(xl) {
+      max-width: ab.rem(219);
+    }
+  }
+
+  &__nav-opener {
+    @include ab.media-up(lg) {
+      display: none;
+    }
+  }
+
+  /* mobile nav */
+  &__mobile-nav {
+    position: fixed;
+    inset: 0;
+    color: ab.$clr-background;
+    background-color: ab.$clr-primary;
+    z-index: 50;
+
+    display: flex;
+    align-items: start;
+
+    @include ab.media-up("lg") {
+      display: none;
+    }
+  }
+
+  &__nav-closer {
+    justify-self: end;
+    margin-block: ab.rem(24);
+
+    @include ab.media-up(md) {
+      padding-block: ab.rem(10);
+    }
+  }
+
+  &__mobile-menu-wrapper {
+    display: grid;
+    place-content: center;
+  }
+
+  &__mobile-menu {
+    display: grid;
+    gap: ab.rem(24);
+    justify-items: center;
+  }
+
+  &__mobile-menu-link {
+    font-size: ab.rem(20);
+    font-weight: ab.$fw-bold;
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-underline-offset: ab.rem(4);
+  }
+
+  &__sign-in-button {
+    text-decoration: underline;
+    text-underline-offset: ab.rem(4);
+  }
+
+  /* default nav */
+  &__nav {
+    display: none;
+    align-items: center;
+    gap: ab.rem(20);
+
+    color: ab.$clr-background;
+
+    @include ab.media-up(lg) {
+      display: flex;
+      gap: ab.rem(48);
+    }
+
+    @include ab.media-up(xl) {
+      gap: ab.rem(100);
+    }
+  }
+
+  &__menu {
+    display: flex;
+    gap: ab.rem(30);
+    align-items: center;
+
+    @include ab.media-up(lg) {
+      display: flex;
+    }
+  }
+
+  &__menu-item {
+    text-transform: uppercase;
+    font-weight: ab.$fw-bold;
+    text-decoration: underline;
+    text-underline-offset: ab.rem(4);
+  }
+
+  &__menu-link {
+    font-size: ab.rem(14);
+    letter-spacing: -0.02em;
+    transition: opacity 0.2s ease-in-out;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__button-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: ab.rem(28);
+
+    @include ab.media-up(lg) {
+      flex-direction: row;
+      gap: ab.rem(30);
+    }
+  }
+
+  &__sign-up-button {
+    color: ab.$clr-foreground;
+    background-color: ab.$clr-background;
+
+    @include ab.media-up(lg) {
+      padding: ab.rem(16) ab.rem(42);
+    }
+  }
+}
