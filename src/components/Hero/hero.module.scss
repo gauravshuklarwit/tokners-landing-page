@@ -131,7 +131,9 @@
   }
 
   &__image-mobile {
-    max-width: ab.rem(400);
+    @include ab.media-up("sm") {
+      max-width: ab.rem(400);
+    }
 
     @include ab.media-up("lg") {
       display: none;
