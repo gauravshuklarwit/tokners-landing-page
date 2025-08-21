@@ -30,7 +30,51 @@ body {
   margin-inline: auto;
   padding-inline: ab.rem(20);
 
+  @include ab.media-up(md) {
+    padding-inline: ab.rem(40);
+  }
+
   &--fluid {
     max-width: ab.$container-fluid;
+  }
+}
+
+.button {
+  display: inline-flex;
+  cursor: pointer;
+  padding: ab.rem(16) ab.rem(28);
+  border-radius: 100vw;
+
+  font-size: ab.rem(14);
+  line-height: 1.1;
+  font-weight: ab.$fw-bold;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+
+  &:hover {
+    opacity: 0.8;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  &--primary {
+    color: ab.$clr-background;
+    background-color: ab.$clr-primary;
+  }
+
+  &--link {
+    padding: 0;
+  }
+
+  &--icon {
+    padding: 0;
+    display: inline-flex;
+    place-content: center;
+    width: ab.rem(24);
+    height: ab.rem(24);
+
+    @include ab.media-up("md") {
+      width: ab.rem(42);
+      height: ab.rem(42);
+    }
   }
 }
