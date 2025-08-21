@@ -15,12 +15,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.container-fluid {
-  max-width: ab.$container-fluid;
-}
-
 .container {
   max-width: ab.$container;
   margin-inline: auto;
   padding-inline: ab.rem(20);
+
+  &--fluid {
+    max-width: ab.$container-fluid;
+  }
 }
