@@ -1,0 +1,47 @@
+@use "../../scss/abstracts" as ab;
+
+.standout {
+  &__container--fluid {
+    color: ab.$clr-background;
+    background-color: #1d1534;
+    margin-inline: auto;
+  }
+
+  &__container {
+    display: flex;
+    gap: ab.rem(78);
+    flex-direction: column;
+
+    @include ab.media-up("lg") {
+      flex-direction: row;
+    }
+  }
+
+  &__logo {
+    min-width: fit-content;
+  }
+
+  &__title {
+    font-size: ab.rem(48);
+    font-weight: ab.$fw-medium;
+    line-height: 1.125;
+    max-width: 15ch;
+  }
+
+  &__description {
+    max-width: 61ch;
+    font-weight: ab.$fw-light;
+  }
+
+  &__description-paragraph {
+    opacity: 0.6;
+
+    &:not(:first-child) {
+      margin-block-start: ab.rem(30);
+    }
+  }
+
+  &__description-paragraph--highlight {
+    font-weight: ab.$fw-medium;
+  }
+}
