@@ -1,8 +1,9 @@
 import Image from "next/image";
 
+import { Features } from "@/components/Features";
 import styles from "./hero.module.scss";
 
-export function Hero() {
+export function Hero({ withFeatures }: { withFeatures?: boolean }) {
   return (
     <section className={`${styles["hero"]}`}>
       {/* limits to 1920px */}
@@ -46,6 +47,7 @@ export function Hero() {
             </div>
           </div>
         </div>
+        {withFeatures && <Features />}
       </div>
     </section>
   );
