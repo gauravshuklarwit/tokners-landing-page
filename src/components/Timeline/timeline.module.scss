@@ -60,15 +60,17 @@
     align-content: start;
 
     /* positioning arrow button */
-    &:not(:last-child) .timeline__card-head {
-      position: relative;
+    @include ab.media-up("xl") {
+      &:not(:last-child) .timeline__card-head {
+        position: relative;
 
-      &:not(:last-child)::after {
-        content: url("/chevron-right.svg");
-        opacity: 0.7;
-        position: absolute;
-        bottom: (ab.rem(20));
-        right: 30%;
+        &:not(:last-child)::after {
+          content: url("/chevron-right.svg");
+          opacity: 0.7;
+          position: absolute;
+          bottom: (ab.rem(20));
+          right: 30%;
+        }
       }
     }
 
