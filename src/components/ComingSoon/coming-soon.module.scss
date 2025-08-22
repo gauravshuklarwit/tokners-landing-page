@@ -1,0 +1,65 @@
+@use "../../scss/abstracts" as ab;
+
+.coming-soon {
+  &__container--fluid {
+    background-color: ab.$clr-muted;
+    margin-inline: auto;
+    padding-block: ab.rem(58);
+  }
+
+  &__container {
+    display: grid;
+    gap: ab.rem(20);
+
+    @include ab.media-up("xl") {
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+      align-content: center;
+    }
+  }
+
+  &__text-box {
+    & > * {
+      @include ab.media-up("xl") {
+        max-width: 65ch;
+      }
+    }
+  }
+
+  &__title {
+    font-size: ab.rem(36);
+    font-weight: ab.$fw-medium;
+  }
+
+  &__description {
+    margin-block-start: ab.rem(20);
+  }
+
+  &__paragraph {
+    opacity: 0.6;
+    font-weight: ab.$fw-light;
+
+    &--highlight {
+      font-weight: ab.$fw-medium;
+    }
+
+    &:not(:first-child) {
+      margin-block-start: ab.rem(20);
+    }
+  }
+
+  &__image-box {
+    position: relative;
+
+    background-color: #f7f5f9;
+    border-radius: 25px;
+
+    & > * {
+      position: relative;
+    }
+
+    @include ab.media-up("xl") {
+      height: 120%;
+    }
+  }
+}
