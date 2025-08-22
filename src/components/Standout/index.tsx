@@ -36,7 +36,8 @@ export function Standout() {
               We would get them on our platform and they would see the
               opportunity to create a fan driven digital economy where their
               digital content can be traded as NFTs and their most loyal fans
-              can have the monetary value of their creator's currency increase
+              can have the monetary value of their creator&apos;s currency
+              increase
               <b> significantly</b> as they promote their digital currency
               across their channels while our native token holders benefit from
               the Tokners popularity.
