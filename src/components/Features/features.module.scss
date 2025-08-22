@@ -7,13 +7,13 @@
   &::after {
     content: url("/patterns/features-bottom.svg");
     position: absolute;
-    bottom: 0;
+    bottom: -2%;
     inset-inline: 0;
     z-index: -10;
   }
 
   @include ab.media-up("xl") {
-    padding-block-end: ab.rem(170);
+    padding-block-end: ab.rem(168);
   }
 
   &__container {
