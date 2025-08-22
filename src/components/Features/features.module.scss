@@ -1,0 +1,118 @@
+@use "../../scss/abstracts" as ab;
+
+.features {
+  padding-block-end: ab.rem(84);
+  position: relative;
+
+  &::after {
+    content: url("/patterns/features-bottom.svg");
+    position: absolute;
+    bottom: 0;
+    inset-inline: 0;
+    z-index: -10;
+  }
+
+  @include ab.media-up("xl") {
+    padding-block-end: ab.rem(170);
+  }
+
+  &__container {
+    display: grid;
+    gap: ab.rem(20);
+
+    @include ab.media-up("md") {
+      gap: ab.rem(40);
+    }
+
+    @include ab.media-up("lg") {
+      grid-template-columns: repeat(2, 1fr);
+      gap: ab.rem(20);
+    }
+  }
+
+  &__card {
+    background-color: ab.$clr-muted;
+    padding: ab.rem(20);
+    padding-block-end: 0;
+    border-radius: ab.rem(24);
+
+    text-align: center;
+    display: grid;
+
+    @include ab.media-up("md") {
+      padding: ab.rem(40);
+      padding-block-end: 0;
+    }
+
+    @include ab.media-up("xl") {
+      padding: ab.rem(66);
+      padding-block-end: 0;
+    }
+  }
+
+  &__card-count {
+    color: ab.$clr-muted-foreground;
+    font-size: ab.rem(12);
+  }
+
+  &__card-title {
+    margin-block-start: ab.rem(20);
+    margin-block-end: 0;
+
+    font-weight: ab.$fw-medium;
+    font-size: ab.rem(24);
+
+    @include ab.media-up("md") {
+      margin-block-start: ab.rem(40);
+      margin-block-end: 0;
+    }
+
+    @include ab.media-up("xl") {
+      margin-block-start: ab.rem(66);
+      margin-block-end: 0;
+
+      font-size: ab.rem(36);
+    }
+
+    &--primary {
+      color: ab.$clr-primary;
+      text-decoration: underline;
+      text-underline-offset: ab.rem(8);
+    }
+
+    &--secondary {
+      color: ab.$clr-secondary;
+      text-decoration: underline;
+      text-underline-offset: ab.rem(8);
+    }
+  }
+
+  &__card-description {
+    margin-block-start: ab.rem(16);
+    color: ab.$clr-muted-foreground;
+
+    @include ab.media-up("md") {
+      padding-block: ab.rem(24);
+    }
+
+    @include ab.media-up("xl") {
+      padding-block: ab.rem(30);
+    }
+  }
+
+  &__card-image-wrapper {
+    align-self: self-end;
+    margin-block-start: ab.rem(16);
+  }
+
+  &__card-image {
+    @include ab.media-up("sm") {
+      max-height: ab.rem(300);
+      margin-inline: auto;
+    }
+
+    @include ab.media-up("lg") {
+      max-height: ab.rem(560);
+    }
+  }
+}
