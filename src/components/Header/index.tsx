@@ -36,7 +36,7 @@ export function Header({ className }: { className?: string }) {
         {/* logo */}
         <Link href="/" aria-label="Home" className={styles["header__logo"]}>
           <Image
-            src="/brand-logo.svg"
+            src="/brand-logo-wordmark.svg"
             alt="brand logo"
             width={219}
             height={35}
