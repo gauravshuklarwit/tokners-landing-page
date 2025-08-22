@@ -37,6 +37,17 @@
   &__list {
     display: grid;
     gap: ab.rem(80);
+    position: relative;
+
+    &::after {
+      content: url("/plane-vector.svg");
+      position: absolute;
+      bottom: 100%;
+      right: -5%;
+
+      width: ab.rem(257);
+      height: ab.rem(155);
+    }
 
     @include ab.media-up("xl") {
       grid-template-columns: repeat(4, 1fr);
