@@ -3,8 +3,10 @@
 .coming-soon {
   &__container--fluid {
     background-color: ab.$clr-muted;
-    margin-inline: auto;
     padding-block: ab.rem(58);
+    margin-inline: auto;
+
+    overflow: hidden;
   }
 
   &__container {
@@ -12,9 +14,14 @@
     gap: ab.rem(20);
 
     @include ab.media-up("xl") {
+      gap: ab.rem(60);
       grid-template-columns: repeat(2, 1fr);
-      align-items: center;
       align-content: center;
+      align-items: center;
+    }
+
+    @include ab.media-up("2xl") {
+      gap: ab.rem(20);
     }
   }
 
@@ -27,8 +34,12 @@
   }
 
   &__title {
-    font-size: ab.rem(36);
+    font-size: ab.rem(28);
     font-weight: ab.$fw-medium;
+
+    @include ab.media-up("md") {
+      font-size: ab.rem(36);
+    }
   }
 
   &__description {
@@ -50,16 +61,59 @@
 
   &__image-box {
     position: relative;
-
     background-color: #f7f5f9;
-    border-radius: 25px;
+    max-width: ab.rem(600);
+    height: ab.rem(600);
+    border-radius: ab.rem(24);
 
-    & > * {
-      position: relative;
+    @include ab.media-up("2xl") {
+      max-width: revert;
+      height: calc(100% + 5rem);
     }
 
-    @include ab.media-up("xl") {
-      height: 120%;
+    & > * {
+      position: absolute;
+    }
+  }
+
+  &__cloud-image--short {
+    top: 5%;
+    left: 5%;
+    scale: 0.9;
+
+    @include ab.media-up("sm") {
+      top: 10%;
+      left: 10%;
+      scale: 1;
+    }
+  }
+
+  &__rocket-image {
+    bottom: 0;
+    transform: rotate(45deg);
+
+    @include ab.media-up("sm") {
+      bottom: -10%;
+    }
+
+    @include ab.media-up("2xl") {
+      scale: 1.5;
+    }
+  }
+
+  &__cloud-image--long {
+    bottom: 0;
+    right: -20%;
+    scale: 0.7;
+
+    @include ab.media-up("sm") {
+      bottom: 0;
+      right: -10%;
+      scale: 0.8;
+    }
+
+    @include ab.media-up("2xl") {
+      scale: 1;
     }
   }
 }
