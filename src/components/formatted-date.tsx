@@ -1,4 +1,4 @@
-import { formatDate } from "@/app/lib/utils";
+import { formatDate } from "@/lib/utils";
 
 interface FormattedDateProps {
   date: Date;
