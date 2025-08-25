@@ -77,6 +77,39 @@
       margin-block-start: ab.rem(40);
       grid-template-columns: repeat(3, 1fr);
     }
+
+    /* positioning 3d mockups */
+    @include ab.media-up("xl") {
+      position: relative;
+
+      &::before {
+        content: url("/watching-tablet-mockup.svg");
+        position: absolute;
+        left: 20%;
+        bottom: -20%;
+
+        z-index: 30;
+      }
+
+      &::after {
+        content: url("/front-facing-duo.svg");
+        position: absolute;
+        right: 22%;
+        bottom: -21%;
+
+        z-index: 30;
+      }
+    }
+
+    @include ab.media-up("2xl") {
+      &::before {
+        left: 22%;
+      }
+
+      &::after {
+        right: 23%;
+      }
+    }
   }
 
   &__card {
