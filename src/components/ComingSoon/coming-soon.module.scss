@@ -79,24 +79,30 @@
   &__cloud-image--short {
     top: 5%;
     left: 5%;
-    scale: 0.9;
 
     @include ab.media-up("sm") {
       top: 10%;
       left: 10%;
-      scale: 1;
     }
   }
 
   &__rocket-image {
-    bottom: 0;
+    right: 30%;
+    bottom: -5%;
+
     transform: rotate(45deg);
+    scale: 0.7;
 
     @include ab.media-up("sm") {
-      bottom: -10%;
+      scale: 1.25;
+      right: 60%;
+      bottom: -15%;
     }
 
     @include ab.media-up("2xl") {
+      right: 65%;
+      bottom: -5%;
+
       scale: 1.5;
     }
   }
@@ -104,15 +110,20 @@
   &__cloud-image--long {
     bottom: 0;
     right: -20%;
+
     scale: 0.7;
 
     @include ab.media-up("sm") {
-      bottom: 0;
       right: -10%;
+      bottom: 15%;
+
       scale: 0.8;
     }
 
     @include ab.media-up("2xl") {
+      right: -5%;
+      bottom: 20%;
+
       scale: 1;
     }
   }
