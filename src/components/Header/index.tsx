@@ -76,40 +76,42 @@ export function Header({ className }: { className?: string }) {
             <Icons.cross className="button__icon" />
           </button>
 
-          <ul className={styles["header__mobile-menu"]}>
-            {navlinks.map((navLink, idx) => (
-              <motion.li
-                key={navLink?.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{
-                  opacity: isMenuToggled ? 1 : 0,
-                  y: isMenuToggled ? 0 : 20,
-                }}
-                transition={{ duration: 0.3, delay: idx * 0.08 }}
-                className={styles["header__mobile-menu-item"]}
-              >
-                {navLink?.label && (
-                  <Link
-                    href={navLink?.link || "/"}
-                    className={styles["header__mobile-menu-link"]}
-                    onClick={handleMobileNav}
-                  >
-                    {navLink?.label}
-                  </Link>
-                )}
-              </motion.li>
-            ))}
-          </ul>
+          <div className={`${styles["header__mobile-nav-wrapper"]}`}>
+            <ul className={styles["header__mobile-menu"]}>
+              {navlinks.map((navLink, idx) => (
+                <motion.li
+                  key={navLink?.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{
+                    opacity: isMenuToggled ? 1 : 0,
+                    y: isMenuToggled ? 0 : 20,
+                  }}
+                  transition={{ duration: 0.3, delay: idx * 0.08 }}
+                  className={styles["header__mobile-menu-item"]}
+                >
+                  {navLink?.label && (
+                    <Link
+                      href={navLink?.link || "/"}
+                      className={styles["header__mobile-menu-link"]}
+                      onClick={handleMobileNav}
+                    >
+                      {navLink?.label}
+                    </Link>
+                  )}
+                </motion.li>
+              ))}
+            </ul>
 
-          <div className={styles["header__button-group"]}>
-            <button
-              className={`${styles["header__sign-in-button"]} button button--link`}
-            >
-              Sign In
-            </button>
-            <button className={`${styles["header__sign-up-button"]} button`}>
-              Sign Up
-            </button>
+            <div className={styles["header__button-group"]}>
+              <button
+                className={`${styles["header__sign-in-button"]} button button--link`}
+              >
+                Sign In
+              </button>
+              <button className={`${styles["header__sign-up-button"]} button`}>
+                Sign Up
+              </button>
+            </div>
           </div>
         </motion.nav>
 
