@@ -9,10 +9,11 @@
 
   &__container {
     display: flex;
-    gap: ab.rem(78);
+    gap: ab.rem(48);
     flex-direction: column;
 
     @include ab.media-up("lg") {
+      gap: ab.rem(78);
       flex-direction: row;
     }
   }
@@ -22,15 +23,22 @@
   }
 
   &__title {
-    font-size: ab.rem(48);
-    font-weight: ab.$fw-medium;
+    font-size: ab.rem(36);
     line-height: 1.125;
-    max-width: 15ch;
+    font-weight: ab.$fw-medium;
+
+    @include ab.media-up("md") {
+      max-width: 15ch;
+      font-size: ab.rem(48);
+    }
   }
 
   &__description {
-    max-width: 61ch;
     font-weight: ab.$fw-light;
+
+    @include ab.media-up("lg") {
+      max-width: 61ch;
+    }
   }
 
   &__description-paragraph {
