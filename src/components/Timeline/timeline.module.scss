@@ -2,52 +2,50 @@
 
 .timeline {
   &__container--fluid {
-    padding-block: ab.rem(384);
-    margin-inline: auto;
-
     position: relative;
     overflow: hidden;
+
+    padding-block: ab.rem(320);
+    margin-inline: auto;
+
+    @include ab.media-up("xl") {
+      padding-block: ab.rem(384);
+    }
 
     /* section decorators */
     &::before {
       content: url("/patterns/timeline-top.svg");
       position: absolute;
-      top: 0;
       inset-inline: 0;
+      top: 0;
     }
 
     &::after {
       content: url("/patterns/timeline-bottom.svg");
       position: absolute;
-      bottom: -2%;
       inset-inline: 0;
+      bottom: -2%;
     }
   }
 
-  &__card-quarter {
-    color: ab.$clr-primary;
-    font-weight: ab.$fw-bold;
-  }
-
-  &__card-year {
-    font-weight: ab.$fw-bold;
-    font-size: ab.rem(36);
-  }
-
-  &__list {
-    display: grid;
-    gap: ab.rem(80);
+  &__container {
     position: relative;
 
-    &::after {
+    &::before {
       content: url("/plane-vector.svg");
       position: absolute;
-      bottom: 100%;
-      right: -5%;
+      top: 0;
+      right: 0;
+      transform: translateY(-100%);
 
       width: ab.rem(257);
       height: ab.rem(155);
     }
+  }
+
+  &__list {
+    display: grid;
+    gap: ab.rem(52);
 
     @include ab.media-up("xl") {
       grid-template-columns: repeat(4, 1fr);
@@ -58,50 +56,75 @@
   &__card {
     display: grid;
     align-content: start;
+    gap: ab.rem(20);
 
-    /* positioning arrow button */
+    @include ab.media-up("sm") {
+      grid-template-columns: 30% 1fr;
+    }
+
     @include ab.media-up("xl") {
+      grid-template-columns: 1fr;
+      gap: 0;
+
+      /* positioning arrow icon */
       &:not(:last-child) .timeline__card-head {
         position: relative;
 
         &:not(:last-child)::after {
           content: url("/chevron-right.svg");
-          opacity: 0.7;
           position: absolute;
-          bottom: (ab.rem(20));
           right: 30%;
+          bottom: ab.rem(20);
+
+          opacity: 0.7;
         }
       }
-    }
 
-    /* positioning bottom lines */
-    &:not(:first-child) .timeline__card-decoration {
-      &--line-front {
-        position: absolute;
-        bottom: 0;
-        width: 12%;
-        left: 0;
-        border-bottom: 2px dotted hsla(0, 0%, 0%, 0.2);
+      /* positioning bottom lines */
+      &:not(:first-child) .timeline__card-decoration {
+        &--line-front {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+
+          width: 12%;
+          border-bottom: 2px dotted hsla(0, 0%, 0%, 0.2);
+        }
       }
-    }
 
-    &:not(:last-child) .timeline__card-decoration {
-      &--line-back {
-        position: absolute;
-        bottom: 0;
-        width: 73%;
-        right: 0;
-        border-bottom: 2px dotted hsla(0, 0%, 0%, 0.2);
+      &:not(:last-child) .timeline__card-decoration {
+        &--line-back {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+
+          width: 73%;
+          border-bottom: 2px dotted hsla(0, 0%, 0%, 0.2);
+        }
       }
     }
   }
 
-  &__card-decoration {
-    height: ab.rem(55);
-    margin-block: ab.rem(10) ab.rem(50);
+  &__card-quarter {
+    color: ab.$clr-primary;
+    font-weight: ab.$fw-bold;
+  }
 
+  &__card-year {
+    font-size: ab.rem(28);
+    font-weight: ab.$fw-bold;
+
+    @include ab.media-up("lg") {
+      font-size: ab.rem(36);
+    }
+  }
+
+  &__card-decoration {
     position: relative;
     overflow: hidden;
+
+    height: ab.rem(55);
+    margin-block: ab.rem(10) ab.rem(50);
 
     @include ab.media-down("xl") {
       display: none;
@@ -129,10 +152,10 @@
       display: inline-block;
       width: 100px;
       height: 100px;
-      border-radius: 0 0 0 50%;
       background-color: transparent;
       border-left: 2px dotted hsla(0, 0%, 0%, 0.2);
       border-bottom: 2px dotted hsla(0, 0%, 0%, 0.2);
+      border-radius: 0 0 0 50%;
     }
   }
 
@@ -142,11 +165,17 @@
 
   &__card-list-item {
     counter-increment: count;
+
+    position: relative;
+    color: ab.$clr-muted-foreground;
+    padding-inline: ab.rem(32);
+
     font-size: ab.rem(18);
     line-height: 1.8;
-    color: ab.$clr-muted-foreground;
-    position: relative;
-    padding-inline: ab.rem(40);
+
+    @include ab.media-up("xl") {
+      padding-inline: ab.rem(40);
+    }
 
     &::before {
       content: "0" counter(count);
@@ -155,9 +184,9 @@
       inset-block: 0;
 
       color: ab.$clr-secondary;
-      font-weight: ab.$fw-bold;
       font-size: ab.rem(12);
       line-height: 2.83;
+      font-weight: ab.$fw-bold;
     }
   }
 }
