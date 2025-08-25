@@ -85,7 +85,7 @@ export function Timeline() {
                     className={`${styles["timeline__card-decoration--line-back"]}`}
                   ></div>
                 </div>
-                <ul
+                <ol
                   className={`${styles["timeline__card-body"]} ${styles["timeline__card-list"]}`}
                 >
                   {quarter?.chores?.map((chore, index) => (
@@ -96,7 +96,7 @@ export function Timeline() {
                       {chore}
                     </li>
                   ))}
-                </ul>
+                </ol>
               </li>
             ))}
           </ul>
