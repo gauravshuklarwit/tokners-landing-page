@@ -1,0 +1,103 @@
+@use "../../scss/abstracts" as ab;
+
+.footer {
+  &__container--fluid {
+    color: ab.$clr-background;
+    background-color: #1d1534;
+    padding-block: ab.rem(80);
+    margin-inline: auto;
+
+    @include ab.media-up("xl") {
+      padding-block-start: ab.rem(120);
+      padding-block-end: ab.rem(170);
+    }
+  }
+
+  &__site-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: ab.rem(20);
+
+    @include ab.media-up("sm") {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: ab.rem(44);
+    }
+
+    @include ab.media-up("xl") {
+      gap: ab.rem(140);
+    }
+  }
+
+  &__site-link-item {
+    @include ab.media-up("sm") {
+      &:not(:last-child) {
+        position: relative;
+
+        &::after {
+          content: "/";
+          position: absolute;
+          right: 0;
+          inset-block: 0;
+
+          font-weight: ab.$fw-bold;
+          opacity: 0.2;
+
+          /* this translate value would be half of the gap between link items */
+          transform: translateX(22px);
+
+          @include ab.media-up("xl") {
+            transform: translateX(70px);
+          }
+        }
+      }
+    }
+  }
+
+  &__site-link {
+    font-weight: ab.$fw-bold;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+
+    transition: all 150ms ease-out;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  &__bottom-bar {
+    margin-block-start: ab.rem(72);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: ab.rem(40);
+
+    @include ab.media-up("lg") {
+      gap: 0;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    @include ab.media-up("xl") {
+      margin-block-start: ab.rem(120);
+    }
+  }
+
+  &__logo-image {
+    max-width: ab.rem(164);
+
+    @include ab.media-up("md") {
+      max-width: fit-content;
+    }
+  }
+
+  &__copyright {
+    font-size: ab.rem(14);
+  }
+}
