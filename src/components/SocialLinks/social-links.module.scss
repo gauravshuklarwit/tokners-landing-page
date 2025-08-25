@@ -1,0 +1,29 @@
+@use "../../scss/abstracts" as ab;
+
+.social-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: ab.rem(10);
+
+  &__link {
+    display: grid;
+    place-content: center;
+
+    width: ab.rem(40);
+    height: ab.rem(40);
+    border: 2px solid hsla(0, 0%, 100%, 0.2);
+    border-radius: 50%;
+
+    transition: transform 0.3s ease-out;
+
+    &:hover {
+      scale: 1.05;
+    }
+
+    @include ab.media-up("xl") {
+      width: ab.rem(50);
+      height: ab.rem(50);
+    }
+  }
+}
