@@ -1,0 +1,225 @@
+@use "../../scss/abstracts" as ab;
+
+.presale {
+  &__container--fluid {
+    position: relative;
+    overflow: hidden;
+
+    color: ab.$clr-background;
+    background-color: #1d1534;
+    padding-block-start: ab.rem(192);
+    padding-block-end: ab.rem(272);
+    margin-inline: auto;
+
+    @include ab.media-up("sm") {
+      padding-block-start: ab.rem(240);
+    }
+
+    @include ab.media-up("xl") {
+      padding-block-start: ab.rem(364);
+      padding-block-end: ab.rem(205);
+    }
+
+    /* section decorators */
+    &::before {
+      content: url("/patterns/presale-top.svg");
+      position: absolute;
+      inset-inline: 0;
+      top: 0;
+
+      z-index: 10;
+    }
+
+    &::after {
+      content: url("/patterns/presale-bottom.svg");
+      position: absolute;
+      inset-inline: 0;
+      top: 0;
+
+      scale: 1.45;
+
+      @include ab.media-up("sm") {
+        scale: 1.35;
+      }
+
+      @include ab.media-up("lg") {
+        top: auto;
+        bottom: 0;
+
+        scale: 1;
+      }
+    }
+  }
+
+  &__container {
+    position: relative;
+    z-index: 10;
+  }
+
+  &__title {
+    text-align: center;
+    font-size: ab.rem(28);
+    font-weight: ab.$fw-medium;
+
+    @include ab.media-up("xl") {
+      font-size: ab.rem(48);
+    }
+  }
+
+  &__cards-list {
+    counter-reset: count;
+
+    display: grid;
+    gap: ab.rem(20);
+    margin-block-start: ab.rem(36);
+
+    @include ab.media-up("lg") {
+      margin-block-start: ab.rem(40);
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__card {
+    counter-increment: count;
+
+    position: relative;
+    isolation: isolate;
+    z-index: 20;
+
+    display: grid;
+    gap: ab.rem(48);
+
+    background-color: ab.$clr-background;
+    padding-inline: ab.rem(20);
+    padding-block: ab.rem(64);
+    border-radius: ab.rem(24);
+
+    text-align: center;
+    color: ab.$clr-muted-foreground;
+    font-weight: ab.$fw-medium;
+
+    @include ab.media-up("xl") {
+      padding-inline: 0;
+      padding-block: ab.rem(170) ab.rem(177);
+      gap: ab.rem(70);
+
+      &:nth-of-type(even) {
+        transform: translateY(60px);
+      }
+    }
+
+    &::before {
+      content: "0" counter(count);
+      position: absolute;
+      inset-inline: 0;
+      top: 0;
+
+      z-index: -10;
+
+      color: transparent;
+      font-size: ab.rem(160);
+      font-weight: ab.$fw-bold;
+      -webkit-text-stroke: 1px ab.$clr-muted-foreground;
+      opacity: 0.2;
+
+      @include ab.media-up("xl") {
+        font-size: ab.rem(288);
+      }
+    }
+  }
+
+  &__card-head {
+    display: grid;
+    gap: ab.rem(4); //lh
+  }
+
+  &__card-title {
+    color: ab.$clr-foreground;
+    font-size: ab.rem(24);
+    line-height: 1.68;
+    font-weight: ab.$fw-medium;
+
+    @include ab.media-up("xl") {
+      font-size: ab.rem(32);
+    }
+  }
+
+  &__card-dates {
+    line-height: 1.25;
+  }
+
+  &__card-bnb-price {
+    font-size: ab.rem(20);
+    line-height: 1;
+  }
+
+  &__card-soft-cap,
+  &__card-hard-cap {
+    font-weight: ab.$fw-regular;
+
+    & > span {
+      font-weight: ab.$fw-medium;
+    }
+  }
+
+  &__card-soft-cap {
+    margin-top: ab.rem(20);
+  }
+
+  &__card-hard-cap {
+    margin-top: ab.rem(10);
+  }
+
+  &__buy {
+    text-align: center;
+    margin-block-start: ab.rem(60);
+
+    @include ab.media-up("xl") {
+      margin-block-start: ab.rem(150);
+    }
+  }
+
+  &__buy-title {
+    font-size: ab.rem(24);
+    font-weight: ab.$fw-medium;
+
+    @include ab.media-up("xl") {
+      font-size: ab.rem(36);
+    }
+  }
+
+  &__buying-steps {
+    margin-block-start: ab.rem(18);
+
+    @include ab.media-up("xl") {
+      margin-block-start: ab.rem(30);
+    }
+  }
+
+  &__buying-step {
+    @include ab.media-up("xl") {
+      font-size: ab.rem(16);
+      line-height: 1.25;
+      font-weight: ab.$fw-medium;
+    }
+  }
+
+  &__buying-step:not(:last-child) {
+    position: relative;
+    margin-block-end: ab.rem(44);
+
+    /* positioning chevron bottom icon */
+    &::after {
+      content: url("/chevron-bottom.svg");
+      position: absolute;
+      inset-inline: 0;
+      top: 100%;
+
+      width: ab.rem(24);
+      height: ab.rem(24);
+
+      margin-top: ab.rem(10);
+      margin-inline: auto;
+    }
+  }
+}

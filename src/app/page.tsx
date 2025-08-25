@@ -3,6 +3,7 @@ import { Hero } from "@/components/Hero";
 import { Standout } from "@/components/Standout";
 import { Timeline } from "@/components/Timeline";
 import { ComingSoon } from "@/components/ComingSoon";
+import { Presale } from "@/components/Presale";
 import styles from "./page.module.scss";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
         <Standout />
         <Timeline />
         <ComingSoon />
+        <Presale />
       </main>
     </Layout>
   );
