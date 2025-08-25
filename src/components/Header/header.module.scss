@@ -36,6 +36,10 @@
     @include ab.media-up(lg) {
       display: none;
     }
+
+    & > svg {
+      stroke: ab.$clr-background;
+    }
   }
 
   /* mobile nav */
